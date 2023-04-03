@@ -1,0 +1,253 @@
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  padding: 0;
+  font-family: Cambria, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+
+/*CÓDIGO PARA O MENU*/
+
+nav a.active {
+  background-color: #67e9ff;
+  color: black;
+}
+
+a {
+	color: #FFF;
+}
+
+.toggle,
+[id^=drop] {
+	display: none;
+}
+
+nav { 
+	margin:0;
+	padding: 0;
+	font-size:20px;
+	background-color: #ffc935;
+	font-family: Cambria, Georgia, Times, 'Times New Roman', serif;
+}
+
+#logo {
+	display: block;
+	padding: 0 30px;
+	float: left;
+}
+
+#imgsize{
+    width: 300px;
+}
+
+/* Since we'll have the "ul li" "float:left"
+ * we need to add a clear after the container. */
+nav:after {
+	content:"";
+	display:table;
+	clear:both;
+}
+
+nav ul {
+	float: right;
+	padding:0;
+	margin:25px;
+	list-style: none;
+	position: relative;
+	}
+	
+nav ul li {
+	margin: 0px;
+	display:block;
+	float: left;
+	background-color: #ffc935;
+}
+
+nav a {
+	display:block;
+	padding:12px 20px;	
+	text-align: center;
+	color: black;
+	font-size:20px;
+	text-decoration:none;
+	transition: 0.4s;
+	border-radius: 20px;
+}
+
+nav a:hover { 
+	background-color: #8359a1;
+	color: #ffffff;
+	text-decoration:none;
+}
+
+	
+@media all and (max-width : 768px) {
+
+	#logo {
+		display: block;
+		padding: 0;
+		width: 100%;
+		text-align: center;
+		float: none;
+	}
+
+	nav {
+		margin: 0;
+	}
+
+	nav a{
+		font-size:17px;
+		padding:10px 20px;	
+		
+	}
+
+	/* Hide the navigation menu by default */
+	/* Also hide the  */
+	.toggle + a,
+	.menu {
+		display: none;
+		margin:0px;
+		padding:10px 50px;
+	}
+
+	/* Stylinf the toggle lable */
+	.toggle {
+		display: block;
+		background-color: #8359a1;
+		padding:14px 7px;	
+		color:BLACK;
+		font-size:22px;
+		text-decoration:none;
+		border:none;
+	}
+
+	.toggle:hover {
+		background-color: #8359a1;
+	}
+
+	/* Display Dropdown when clicked on Parent Lable */
+	[id^=drop]:checked + ul {
+		display: block;
+	}
+
+	nav ul li {
+		display: block;
+		width: 100%;
+	}
+	nav a:hover {
+		background-color: #8359a1;
+	}
+
+}
+
+@media all and (max-width : 330px) {
+
+	nav ul li {
+		display:block;
+		width: 94%;
+	}
+
+}
+
+
+
+/*CÓDIGO PARA O MAIN-CONTEÚDO (todas as pags exceto home)*/
+
+.content{
+	padding: 0px;
+	
+}
+
+.wrapper {
+  margin-top: 0px;
+  height: 100%;
+  display: table;
+  width: 100%;
+  text-align: center;
+  font-family: Cambria, Georgia, Times, 'Times New Roman', serif;
+}
+.header {
+  display: table-row;
+  height: auto;
+  font-size: 40px;
+  background: #8359a1;
+  color: white;
+  font-family: Cambria, Georgia, Times, 'Times New Roman', serif;
+}
+
+.main {
+  height: 100%;
+  display: table;
+  width: 100%;
+  font-family: Cambria, Georgia, Times, 'Times New Roman', serif;
+}
+
+.box {
+  display: table-cell;
+
+}
+
+.sidebar {
+  width: 150px;
+  background: #ffc935;
+}
+.footer {
+  display: table-row;
+  height: auto;
+  background: #67e9ff;
+  color: black;
+}
+
+.rodape {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #67e9ff;
+	color: black;
+  }
+
+@media screen and (max-width: 580px) {
+
+  .sidebar {
+    width:50px;
+    background: #ffc935;
+  }
+
+  .wrapper {
+    margin-top: 0px;
+  }
+
+}
+
+
+
+/*CÓDIGO DA PÁGINA CONTATO*/
+
+.form-group {
+	margin-left:250px;
+	margin-right:250px;
+}
+
+@media all and (max-width : 768px) {
+	.form-group {
+		margin-left:10px;
+		margin-right:10px;
+	}
+}
+
+
+
+
+
+
+/*CÓDIGO DA PAGINA CADASTRO*/
+
+
+
+
+
+
+
+

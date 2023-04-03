@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me Leva Pra Casa? - Encontre Um Pet Para Adotar</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+ 
+
+<nav>
+  <div id="logo"><img id="imgsize" src="images/logo_escrito.png" /></div>
+
+  <label for="drop" class="toggle"><img src="images/pegada2.png">&nbsp&nbspMENU</label>
+  <input type="checkbox" id="drop" />
+      <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sobre.html">Quem Somos</a></li>
+          <li><a href="busca.html">Quero Um Amigo</a></li>
+          <li><a class="active"href="cadastro.html">Cadastro de Pet</a></li>
+          <li><a href="contato.html">Contato</a></li>
+      </ul>
+  </nav>
+
+
+
+<div class="wrapper">
+  <div class="header">CADASTRO
+
+    <br>
+  </div>
+  <div class="main">
+    <div class="box sidebar"><img class="img-responsive" src="images/dogif.gif" /></div>
+    <div class="box content"> 
+      
+     FAZER FORMS PARA CADASTRO
+     <br><br><br><br><br><br><br>
+
+
+     subir arquivo foto:
+
+     <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+      </div>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputGroupFile01"
+          aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+
+<br><br>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="customFileLang" lang="pt">
+          <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+        </div>
+      </div>
+    </div>
+
+<br>
+<br>
+<br>
+
+
+    
+    </div>
+    <div class="box sidebar"><img class="img-responsive" src="images/dogif.gif" /></div>
+  </div>
+  <div class="footer">RODAPÉ</div>
+</div>
+
+
+
+
+
+<script>
+// When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    document.getElementById("nav").style.padding = "30px 10px";
+  } else {
+    document.getElementById("nav").style.padding = "0px";
+  }
+}
+</script>
+
+</body>
+</html>
