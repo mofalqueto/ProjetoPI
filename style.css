@@ -6,6 +6,10 @@ body {
   font-family: Cambria, Georgia, Times, 'Times New Roman', serif;
 }
 
+.form_pet
+{
+	margin: 2px auto;
+}
 
 
 /*CÓDIGO PARA O MENU*/
@@ -236,7 +240,10 @@ nav a:hover {
 		margin-right:10px;
 	}
 }
-
+.input-group{
+	left: 40% !important;
+	
+}
 
 
 
