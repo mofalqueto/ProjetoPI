@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!-- 
+senha bd = Tomate!!0103;
+nome bd = id20492223_bd_pi;
+usuario bd = id20492223_administrador; -->
+
 <html lang="en">
 
 <head>
@@ -9,6 +14,8 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
@@ -32,9 +39,8 @@
 
 
 
-  <div class="wrapper">
+  <div class="wrapper" id="crudApp">
     <div class="header">CADASTRO
-
       <br>
     </div>
     <div class="main">
@@ -42,11 +48,11 @@
       <div class="box content">
         <!--INFORMAÇÕES PARA CADASTRO, NOME, SEXO, IDADE, RAÇA-->
         <h1><strong>VAMOS CADASTRAR ESSA LINDEZA!</strong></h1>
-        <input class = "form_pet" type="text" name="nomeAnimal" id="inp_animal" value="Qual o seu nome?"><br>
-        <input class = "form_pet" type="text" name="idadeAnimal" id="inp_idade" value="Qual sua idade?"><br>
-        <input class = "form_pet" type="text" name="racaAnimal" id="inp_raca" value="Qual sua raça?"><br>
-        <p>Qual seu sexo?</p>
-        <select name="sexoAnimal" id="sexoAnimal">
+        <input class = "form_pet" type="text" name="nomeAnimal" v-model="inp_animal" value="Qual o seu nome?"><br>
+        <input class = "form_pet" type="text" name="idadeAnimal" v-model="inp_idade" value="Qual sua idade?"><br>
+        <input class = "form_pet" type="text" name="racaAnimal" v-model="inp_raca" value="Qual sua raça?"><br>
+        <p><strong>Qual seu sexo?</strong></p>
+        <select class="selecao" name="sexoAnimal" id="sexoAnimal">
           <option value="femea">Fêmea</option>
           <option value="macho">Macho</option>
         </select>
@@ -54,23 +60,15 @@
 
         <!-- UPLOAD DE ARQUIVOS, FOTOS -->
         <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-          </div>
           <div class="custom-file">
             <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
             </div>
           </div>
         </div>
-        <br><br>
-        <input class="botao_cad" type="button" value="Fazer cadastro">
+        <button class="botao_cad" type="button" value="Fazer cadastro" @click="submitData"> <!-- cuidar dessas questões do vue-->
         <br>
         <br>
         <br>
-
-
-
       </div>
       <div class="box sidebar"><img class="img-responsive" src="images/dogif.gif" /></div>
     </div>
@@ -82,16 +80,101 @@
 
 
   <script>
-    // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
-    // window.onscroll = function () { scrollFunction() };
-
-    // function scrollFunction() {
-    //   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    //     document.getElementById("nav").style.padding = "30px 10px";
-    //   } else {
-    //     document.getElementById("nav").style.padding = "0px";
-    //   }
-    // }
+    var application = new Vue({
+        el: "#crudApp",
+        data: {
+            allData: "",
+            myModel: false,
+            actionButton: "Insert",
+        },
+        methods: {
+            fetchAllData: function () {
+                axios
+                    .post("action.php", {
+                        action: "fetchall",
+                    })
+                    .then(function (response) {
+                        application.allData = response.data;
+                    });
+            },
+            openModel: function () {
+                application.first_name = "";
+                application.last_name = "";
+                application.actionButton = "Insert";
+                application.dynamicTitle = "Adicionar Aluno";
+                application.myModel = true;
+            },
+            submitData: function () {
+                if (application.first_name != "" && application.last_name != "") {
+                    if (application.actionButton == "Insert") {
+                        axios
+                            .post("action.php", {
+                                action: "insert",
+                                firstName: application.first_name,
+                                lastName: application.last_name,
+                            })
+                            .then(function (response){
+                                application.myModel = false;
+                                application.fetchAllData();
+                                application.first_name = "";
+                                application.last_name = "";
+                                alert(response.data.message);
+                            });
+                    }
+                    if (application.actionButton == "Update") {
+                        axios
+                            .post("action.php", {
+                                action: "update",
+                                firstName: application.first_name,
+                                lastName: application.last_name,
+                                hiddenId:application.hiddenId,
+                            })
+                            .then(function (response){
+                                application.myModel = false;
+                                application.fetchAllData();
+                                application.first_name = "";
+                                application.last_name = "";
+                                application.hiddenId = "";
+                                alert(response.data.message);
+                            });
+                    }   
+                    } else {
+                    alert("Complete todos os dados!!!");
+                }
+            },
+            fetchData: function (id){
+                    axios
+                    .post ("action.php", {
+                            action: "fetchSingle",
+                            id: id,
+                        })
+                        .then(function (response) {
+                        application.firstName = response.data.first_name;
+                            application.last_name = response.data.last_name;
+                            application.hiddenId = response.data.id;
+                            application.myModel = true;
+                            application.actionButton = "Update";
+                            application.dynamicTitle = "Edit Data";
+                        });
+            },
+            deleteData: function (id) {
+                if (confirm("Você tem certeza que deseja deletar esse aluno?")) {
+                        axios
+                            .post("action.php", {
+                                action: "delete",
+                                id: id,
+                            })
+                        .then(function (response) {
+                                application.fetchAllData();
+                                alert(response.data.message);
+                            });
+                    }
+                    },
+            },
+        created: function() {
+                    this.fetchAllData();
+        },
+    });
   </script>
 
 </body>
