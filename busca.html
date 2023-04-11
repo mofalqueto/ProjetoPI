@@ -7,8 +7,11 @@
     <title>Me Leva Pra Casa? - Encontre Um Pet Para Adotar</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
 </head>
 
 <body>
@@ -59,34 +62,68 @@
         <br><br>
         
           
-        <button type="submit" class="btn btn-default">Procurar</button>
-      
+        <button type="submit" class="btn btn-default">Filtrar</button>
       
       </div>
 
+      <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+    <!--Card 1-->
+    <div class="rounded overflow-hidden shadow-lg">
       
+      <img class="max-w-xs inline-block" src="/images/img1.jpg" alt="ABACAXI">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">ABACAXI</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#gato</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#laranja</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#macho</span>
+      </div>
     </div>
+    <!--Card 2-->
+    <div class="rounded overflow-hidden shadow-lg ">
+      <img class="max-w-xs inline-block" src="/images/img2.jpg" alt="MONTANHA">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">MONTANHA</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#cachorro</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#caramelo</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fêmea</span>
+      </div>
+    </div>
+
+    <!--Card 3-->
+    <div class="rounded overflow-hidden shadow-lg">
+      <img class="max-w-xs inline-block" src="/images/img3.jpg" alt="MIOJO">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">MIOJO</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#cachorro</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#branco</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#macho</span>
+      </div>
+    </div>
+  </div>
+</div>
+      
+  
     <div class="box sidebar"><img class="img-responsive" src="images/dogif.gif" /></div>
   </div>
   <div class="footer">RODAPÉ</div>
 </div>
 
 
-
-
-
-<script>
-// When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("nav").style.padding = "30px 10px";
-  } else {
-    document.getElementById("nav").style.padding = "0px";
-  }
-}
-</script>
 
 </body>
 </html>
